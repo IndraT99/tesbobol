@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clickjacking Test</title>
+    <style>
+        .container {
+            position: relative;
+            width: 800px;
+            height: 600px;
+        }
+        .hidden-iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.5; /* Transparansi iframe */
+            z-index: 1;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.5); /* Transparansi overlay */
+            text-align: center;
+            line-height: 600px;
+            font-size: 24px;
+            color: red;
+            pointer-events: none; /* Overlay tidak menerima klik */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <iframe class="hidden-iframe" src="http://pipapip.web.id"></iframe>
+        <div class="overlay">Klik di sini!</div>
+    </div>
+</body>
+</html>
